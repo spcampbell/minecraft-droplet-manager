@@ -31,7 +31,7 @@ Set the droplet details in `config.php`. Note that the snapshot name that is cre
 
 Start your Minecraft droplet on Digital Ocean.
 
-Visit index.php on your host and log in.
+Browse to `index.php` on your host and log in.
 
 You should see a status of "active" and the ip address information.
 
