@@ -15,11 +15,11 @@ You'll need a place to host the files that is not on the minecraft server you ar
 
 Before anything else, set up your Minecraft server at Digital Ocean. There are several options for this and Google is your friend.
 
-My personal favorite is Mineos: [http://minecraft.codeemo.com](http://minecraft.codeemo.com) After spinning up your droplet, follow the appropriate [install steps for your distribution](http://minecraft.codeemo.com/mineoswiki/index.php?title=Main_Page).
+My personal favorite is Mineos: [http://minecraft.codeemo.com](http://minecraft.codeemo.com). To use this, after spinning up your droplet, follow the appropriate [install steps for your distribution](http://minecraft.codeemo.com/mineoswiki/index.php?title=Main_Page).
 
 DO NOT FORGET TO CONFIGURE YOUR FIREWALL FOR SECURITY!
-[Mineos instructions here](http://minecraft.codeemo.com/mineoswiki/index.php?title=Iptables)
-[Digital Ocean article for Ubuntu](https://www.digitalocean.com/community/tutorials/additional-recommended-steps-for-new-ubuntu-14-04-servers)
+- [Mineos instructions here](http://minecraft.codeemo.com/mineoswiki/index.php?title=Iptables)
+- [Digital Ocean article for Ubuntu](https://www.digitalocean.com/community/tutorials/additional-recommended-steps-for-new-ubuntu-14-04-servers)
 
 #### 2. Configure this script
 
