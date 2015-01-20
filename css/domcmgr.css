@@ -1,0 +1,19 @@
+#progressmodal {
+    background-color: #fefefe;
+    color: #333;
+    text-shadow: none; /* Prevent inheritence from `body` */
+    background-color: #fff;
+    border: 0px solid #bbb;
+    text-align: center;
+}
+
+.modal-dialog {
+    margin-top: 50px;
+}
+#modalbodyhtml {
+    min-height: 300px;    
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}

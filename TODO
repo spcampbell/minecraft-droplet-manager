@@ -1,0 +1,2 @@
+- add catch() for errors in promise chains
+- limit recursion to sane timeouts
