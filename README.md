@@ -1,7 +1,7 @@
 Minecraft Droplet Manager
 -------------------------
 
-AngularJS + PHP powered single click control of a minecraft server droplet hosted on Digital Ocean.
+[AngularJS](http://angularjs.org/) + PHP powered single click control of a minecraft server droplet hosted on Digital Ocean. Thanks to [Bootstrap](http://getbootstrap.com/), it's responsive too.
 
 Starts it up when ready to play and tears it down when done. Automatically creates a latest snapshot before destroying droplet.
 
@@ -9,7 +9,7 @@ Let the people play without needing your help and costing you a fortune.
 
 ### Browser Compatibility
 
-I am not able to test this in very many browsers. I can verify it works in Safari 8, Internet Explorer 11, and Chrome 39. If you have success or errors in other browsers, please let me know by submitting in the wiki.
+I am not able to test this in very many browsers. I can verify it works in Safari 8, Internet Explorer 11, and Chrome 39 (desktop and mobile). If you have success or errors in other browsers, please let me know by submitting in the wiki.
 
 ### Setup
 
