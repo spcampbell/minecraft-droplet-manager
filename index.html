@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Minecraft Droplet Manager by gnonai</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/gnonai/minecraft-droplet-manager">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/gnonai/minecraft-droplet-manager/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/gnonai/minecraft-droplet-manager/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Minecraft Droplet Manager</h1>
+          <p>AngularJS + PHP powered single click control of a Minecraft server droplet hosted on Digital Ocean.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/gnonai">gnonai</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h2>
+<a id="minecraft-droplet-manager" class="anchor" href="#minecraft-droplet-manager" aria-hidden="true"><span class="octicon octicon-link"></span></a>Minecraft Droplet Manager</h2>
+
+<p><a href="http://angularjs.org/">AngularJS</a> + PHP powered single click control of a minecraft server droplet hosted on Digital Ocean.</p>
+
+<p>Thanks to <a href="http://getbootstrap.com/">Bootstrap</a>, it's responsive too.</p>
+
+<p>Starts it up when ready to play and tears it down when done. Automatically creates a latest snapshot before destroying droplet.</p>
+
+<p>Let the people play without needing your help and costing you a fortune.</p>
+
+<h3>
+<a id="browser-compatibility" class="anchor" href="#browser-compatibility" aria-hidden="true"><span class="octicon octicon-link"></span></a>Browser Compatibility</h3>
+
+<p>I am not able to test this in very many browsers. I can verify it works in Safari 8, Internet Explorer 11, and Chrome 39 (desktop and mobile). If you have success or errors in other browsers, please let me know by submitting issues.</p>
+
+<h3>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h3>
+
+<h4>
+<a id="1-host-this-script-somewhere-and-set-up-your-minecraft-droplet" class="anchor" href="#1-host-this-script-somewhere-and-set-up-your-minecraft-droplet" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Host this script somewhere and set up your Minecraft droplet.</h4>
+
+<p>You'll need a place to host the files that is not on the minecraft server you are controlling. The web host will need to have PHP available.</p>
+
+<p>Before configuring this script, set up your Minecraft server at Digital Ocean. There are several options for this and Google is your friend.</p>
+
+<p>My personal favorite is Mineos: <a href="http://minecraft.codeemo.com">http://minecraft.codeemo.com</a>. To use this, after spinning up your droplet, follow the appropriate <a href="http://minecraft.codeemo.com/mineoswiki/index.php?title=Main_Page">install steps for your distribution</a>.</p>
+
+<p>DO NOT FORGET TO CONFIGURE YOUR FIREWALL FOR SECURITY!</p>
+
+<ul>
+<li><a href="http://minecraft.codeemo.com/mineoswiki/index.php?title=Iptables">Mineos iptables instructions here</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/additional-recommended-steps-for-new-ubuntu-14-04-servers">Digital Ocean article for Ubuntu firewall</a></li>
+</ul>
+
+<h4>
+<a id="2-configure-this-script" class="anchor" href="#2-configure-this-script" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Configure this script</h4>
+
+<ul>
+<li><p>Set the password for this script in <code>index.php</code></p></li>
+<li><p>Set the droplet details in <code>config.php</code>. Make sure and set the droplet name to match the name you give your droplet on Digital Ocean. Note that the snapshot name that is created is appended with <code>-snap</code>. Don't include <code>-snap</code> in the name you put in <code>config.php</code>.</p></li>
+</ul>
+
+<blockquote>
+<p>TIP: If you have multiple people who want to control their own droplet,
+just make a folder for each on your web host. Put a copy of the files into
+each folder and they can visit with <a href="http://yourhost.com/player1/">http://yourhost.com/player1/</a> etc.
+Then make the <code>config.php</code> and <code>index.php</code> unique to that person/droplet.
+Note that you'll need a uniquely named droplet for each person.</p>
+</blockquote>
+
+<h4>
+<a id="3-try-it-out" class="anchor" href="#3-try-it-out" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Try it out</h4>
+
+<ul>
+<li><p>Got to digitalocean.com and tart your Minecraft droplet. Make sure the name you give it matches what you put in <code>config.php</code></p></li>
+<li><p>Browse to <code>index.php</code> on your host and log in.</p></li>
+<li><p>You should see a status of "active" and the ip address information. If you do not, something is not correct.</p></li>
+<li><p>View your browser's javascript/error console and click the archive button. The console will show you what is going on. Note that it may take 3-5 minutes for this to complete. Be patient.</p></li>
+<li><p>If all goes well, the droplet will be gone and a new snapshot will be created.</p></li>
+<li><p>Now try to bring it back up while watching the console.</p></li>
+</ul>
+
+<h4>
+<a id="4-now-go-play" class="anchor" href="#4-now-go-play" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Now go play!</h4>
+
+<p>You may be wondering what the "admin console" link is all about. This was specifically for mineos. You could use it to link to whatever you are using to manage the server. I may add a config to hide it in the future for those that don't need it.</p>
+
+<h3>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h3>
+
+<p>This is a work in progress. I still need to add some robust error handling. That is coming soon.</p>
+
+<h3>
+<a id="credit" class="anchor" href="#credit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credit</h3>
+
+<p>This was inspired by the work of S-rc-C-d-</p>
+
+<p><a href="http://hi.srccd.com/post/hosting-minecraft-on-digitalocean">http://hi.srccd.com/post/hosting-minecraft-on-digitalocean</a></p>
+
+<p>I recommend everyone visit his page and read over his excellent write up. He has some great scripts in there for setting up the Minecraft server yourself.</p>
+
+<p>Thank you for your work and for sharing it with us!</p>
+
+<h3>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h3>
+
+<p>The MIT License (MIT)</p>
+
+<p>Copyright (c) 2014</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
