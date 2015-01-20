@@ -9,7 +9,7 @@ Let the people play without needing your help and costing you a fortune.
 
 ### Browser Compatibility
 
-I am not able to test this in very many browsers. I can verify it works in Safari 8.0.2 and Chrome 39. If you have success or errors in other browsers, please let me know by submitting in the wiki.
+I am not able to test this in very many browsers. I can verify it works in Safari 8.0.2, Internet Explorer 11, and Chrome 39. If you have success or errors in other browsers, please let me know by submitting in the wiki.
 
 ### Setup
 
