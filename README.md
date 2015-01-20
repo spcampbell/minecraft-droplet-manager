@@ -7,6 +7,10 @@ Starts it up when ready to play and tears it down when done. Automatically creat
 
 Let the people play without needing your help and costing you a fortune.
 
+### Browswer Compatibility
+
+I am not able to test this in very many browsers. I can verify it works in Safari 8.0.2 and Chrome 39. If have success or errors in other browsers, please let me know by submitting in the wiki.
+
 ### Setup
 
 #### 1. Host this script somewhere and set up your Minecraft droplet.
