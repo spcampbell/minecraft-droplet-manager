@@ -23,9 +23,9 @@ DO NOT FORGET TO CONFIGURE YOUR FIREWALL FOR SECURITY!
 
 #### 2. Configure this script
 
-Set the password for this script in index.php
+Set the password for this script in `index.php`
 
-Set the droplet details in config.php. Note that the snapshot name that is created is appended with -snap. Don't include -snap in the name you put in config.php.
+Set the droplet details in `config.php`. Note that the snapshot name that is created is appended with `-snap`. Don't include `-snap` in the name you put in `config.php`.
 
 #### 3. Try it out
 
