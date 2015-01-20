@@ -17,7 +17,7 @@ I am not able to test this in very many browsers. I can verify it works in Safar
 
 You'll need a place to host the files that is not on the minecraft server you are controlling. The host will need to have PHP available.
 
-Before anything else, set up your Minecraft server at Digital Ocean. There are several options for this and Google is your friend.
+Before configuring this script, set up your Minecraft server at Digital Ocean. There are several options for this and Google is your friend.
 
 My personal favorite is Mineos: [http://minecraft.codeemo.com](http://minecraft.codeemo.com). To use this, after spinning up your droplet, follow the appropriate [install steps for your distribution](http://minecraft.codeemo.com/mineoswiki/index.php?title=Main_Page).
 
@@ -27,23 +27,23 @@ DO NOT FORGET TO CONFIGURE YOUR FIREWALL FOR SECURITY!
 
 #### 2. Configure this script
 
-Set the password for this script in `index.php`
+- Set the password for this script in `index.php`
 
-Set the droplet details in `config.php`. Note that the snapshot name that is created is appended with `-snap`. Don't include `-snap` in the name you put in `config.php`.
+- Set the droplet details in `config.php`. Make sure and set the droplet name to match the name you give your droplet on Digital Ocean. Note that the snapshot name that is created is appended with `-snap`. Don't include `-snap` in the name you put in `config.php`.
 
 #### 3. Try it out
 
-Start your Minecraft droplet on Digital Ocean.
+- Got to digitalocean.com and tart your Minecraft droplet. Make sure the name you give it matches what you put in `config.php`
 
-Browse to `index.php` on your host and log in.
+- Browse to `index.php` on your host and log in.
 
-You should see a status of "active" and the ip address information.
+- You should see a status of "active" and the ip address information. If you do not, something is not correct.
 
-View your browser's javascript/error console and click the archive button. The console will show you what is going on. Note that it may take 3-5 minutes for this to complete. Be patient.
+- View your browser's javascript/error console and click the archive button. The console will show you what is going on. Note that it may take 3-5 minutes for this to complete. Be patient.
 
-If all goes well, the droplet will be gone and a new snapshot will be created.
+- If all goes well, the droplet will be gone and a new snapshot will be created.
 
-Now try to bring it back up while watching the console.
+- Now try to bring it back up while watching the console.
 
 #### 4. Now go play!
 
