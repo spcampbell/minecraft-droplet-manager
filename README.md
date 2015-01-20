@@ -17,7 +17,7 @@ I am not able to test this in very many browsers. I can verify it works in Safar
 
 #### 1. Host this script somewhere and set up your Minecraft droplet.
 
-You'll need a place to host the files that is not on the minecraft server you are controlling. The host will need to have PHP available.
+You'll need a place to host the files that is not on the minecraft server you are controlling. The web host will need to have PHP available.
 
 Before configuring this script, set up your Minecraft server at Digital Ocean. There are several options for this and Google is your friend.
 
@@ -32,6 +32,12 @@ DO NOT FORGET TO CONFIGURE YOUR FIREWALL FOR SECURITY!
 - Set the password for this script in `index.php`
 
 - Set the droplet details in `config.php`. Make sure and set the droplet name to match the name you give your droplet on Digital Ocean. Note that the snapshot name that is created is appended with `-snap`. Don't include `-snap` in the name you put in `config.php`.
+
+> TIP: If you have multiple people who want to control their own droplet,
+> just make a folder for each on your web host. Put a copy of the files into
+> each folder and they can visit with http://yourhost.com/player1/ etc.
+> Then make the `config.php` and `index.php` unique to that person/droplet.
+> Note that you'll need a uniquely named droplet for each person.
 
 #### 3. Try it out
 
