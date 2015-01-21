@@ -1,7 +1,7 @@
 Minecraft Droplet Manager
 -------------------------
 
-[AngularJS](http://angularjs.org/) + PHP powered single click control of a minecraft server droplet hosted on Digital Ocean.
+[AngularJS](http://angularjs.org/) + PHP powered single click control of a minecraft server droplet hosted on [Digital Ocean](https://www.digitalocean.com).
 
 Thanks to [Bootstrap](http://getbootstrap.com/), it's responsive too.
 
@@ -19,7 +19,7 @@ I am not able to test this in very many browsers. I can verify it works in Safar
 
 You'll need a place to host the files that is not on the minecraft server you are controlling. The web host will need to have PHP available.
 
-Before configuring this script, set up your Minecraft server at Digital Ocean. There are several options for this and Google is your friend.
+Before configuring this script, set up your Minecraft server at [Digital Ocean](https://www.digitalocean.com). There are several options for this and Google is your friend.
 
 My personal favorite is Mineos: [http://minecraft.codeemo.com](http://minecraft.codeemo.com). To use this, after spinning up your droplet, follow the appropriate [install steps for your distribution](http://minecraft.codeemo.com/mineoswiki/index.php?title=Main_Page).
 
@@ -41,7 +41,7 @@ DO NOT FORGET TO CONFIGURE YOUR FIREWALL FOR SECURITY!
 
 #### 3. Try it out
 
-- Got to digitalocean.com and tart your Minecraft droplet. Make sure the name you give it matches what you put in `config.php`
+- Got to [digitalocean.com](https://www.digitalocean.com) and tart your Minecraft droplet. Make sure the name you give it matches what you put in `config.php`
 
 - Browse to `index.php` on your host and log in.
 
@@ -65,7 +65,7 @@ This is a work in progress. I still need to add some robust error handling. That
 
 This was inspired by the work of S-rc-C-d-
 
-http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
+[http://hi.srccd.com/post/hosting-minecraft-on-digitalocean](http://hi.srccd.com/post/hosting-minecraft-on-digitalocean)
 
 I recommend everyone visit his page and read over his excellent write up. He has some great scripts in there for setting up the Minecraft server yourself.
 
