@@ -46,19 +46,23 @@ DO NOT FORGET TO CONFIGURE YOUR FIREWALL FOR SECURITY!
 
 #### 3. Try it out
 
-- Got to [digitalocean.com](https://www.digitalocean.com) and tart your Minecraft droplet. Make sure the name you give it matches what you put in `config.php`
+- Got to [digitalocean.com](https://www.digitalocean.com) and start your Minecraft droplet. Make sure the name you give it matches what you put in `config.php`
 
-- Browse to `index.php` on your host and log in.
+- Browse to `index.php` on your web host and log in.
 
 - You should see a status of "active" and the ip address information. If you do not, something is not correct.
 
-- View your browser's javascript/error console and click the archive button. The console will show you what is going on. Note that it may take 3-5 minutes for this to complete. Be patient.
+- Open up your browser's javascript/error console. The script shows a step by step output of the activity it is working on. This is handy to verify everything is moving along as expected.
+- 
+- Click the archive button. The console will show you what is going on. Note that it may take 3-5 minutes for this to complete. Be patient.
 
-- If all goes well, the droplet will be gone and a new snapshot will be created.
+- If all goes well, the droplet will be gone and a new snapshot will have been created. In this state, your wallet is happy.
 
 - Now try to bring it back up while watching the console.
 
-#### 4. Now go play!
+#### 4. Now let the people play!
+
+#### What is the "admin console" link?
 
 You may be wondering what the "admin console" link is all about. This was specifically for mineos. You could use it to link to whatever you are using to manage the server. I may add a config to hide it in the future for those that don't need it.
 
