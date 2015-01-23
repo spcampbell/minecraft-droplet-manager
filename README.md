@@ -9,6 +9,11 @@ Starts it up when ready to play and tears it down when done. Automatically creat
 
 Let the people play without needing your help and costing you a fortune.
 
+<img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture3.PNG" alt="Server down" height="150px">
+<img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture1.PNG" alt="Server up" height="150px">
+<img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture2.PNG" alt="Going down" height="150px">
+
+
 ### Browser Compatibility
 
 I am not able to test this in very many browsers. I can verify it works in Safari 8, Internet Explorer 11, and Chrome 39 (desktop and mobile). If you have success or errors in other browsers, please let me know by submitting issues.
