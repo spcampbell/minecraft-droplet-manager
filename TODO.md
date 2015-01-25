@@ -1,3 +1,0 @@
-- add catch() for errors in promise chains
-- limit recursion to sane timeouts
-- Add "copy to clipboard" for MC servier ip and port
