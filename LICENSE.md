@@ -1,3 +1,5 @@
+http://gnonai.github.io/minecraft-droplet-manager/
+
 The MIT License (MIT)
 
 Copyright (c) 2015 Gnonai

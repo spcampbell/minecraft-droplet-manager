@@ -2,6 +2,8 @@
 
 Minecraft Droplet Manager
 
+http://gnonai.github.io/minecraft-droplet-manager/
+
 Single click control of a minecraft server droplet
 hosted on Digital Ocean. Starts it up when ready to play
 and tears it down when done. Automatically creates a latest
