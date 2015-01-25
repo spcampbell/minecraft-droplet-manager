@@ -28,7 +28,8 @@ if ($hma !== true || $whatlevel != "A") header( 'Location: index.php?logout=yes'
 if ($whatlevel != "A") header( 'Location: index.php?logout=yes' );
 
 require 'do_api.php';
-require 'config.php';
+//require 'config.php'; // prod config
+require 'config_dev.php';  // local config for dev only
 
 $todo = "";
 $eventid = "";
