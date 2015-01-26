@@ -67,7 +67,14 @@ if ($whatlevel != "A") header( 'Location: index.php?logout=yes' );
                     
 					<div ng-show="serverup">
 						<div class="row">
-							<div class="col-md-12"><p class="lead">Play Minecraft at: {{ serverip }}:{{ serverport}}</p></div>
+							<div class="col-md-12">
+                                <p class="lead">Play Minecraft at: {{ serverlocation }} 
+                                <span>&nbsp;</span>
+                                <a tooltip="Copy to address to clipboard">
+                                <button class="btn btn-default btn-xs" clip-copy="serverlocation" clip-click-fallback="fallback(copy)"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span></button>
+                                </a>
+                                </p>
+                            </div> 
 						</div>
 						<div class="row">
 							<div class="col-md-12"><p class="lead">Admin Console:  <a data-ng-href="https://{{ serverip }}:8080" target="_blank">https://{{ serverip }}:8080</a></p></div>
@@ -125,6 +132,8 @@ if ($whatlevel != "A") header( 'Location: index.php?logout=yes' );
     <script src="js/ui-bootstrap-tpls-0.12.0.min.js"></script>
     <script src="js/spin.min.js"></script>
     <script src="js/angular-spinner.min.js"></script>
+    <script src="js/ZeroClipboard.js"></script>
+    <script src="js/ngClip.js"></script>
     <script src="app/app.js"></script>
     <script src="app/controllers/domcmgrController.js"></script>
     <script src="app/services/doapiFactory.js"></script>

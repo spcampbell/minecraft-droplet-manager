@@ -22,6 +22,10 @@ http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
 
 (function() {
     
-    var app = angular.module('domcmgrApp', ['ui.bootstrap','angularSpinner']);
-     
+    var app = angular.module('domcmgrApp', ['ui.bootstrap','angularSpinner','ngClipboard']);
+    
+    app.config(['ngClipProvider', function(ngClipProvider) {
+      ngClipProvider.setPath("../ZeroClipboard.swf");
+    }]);
+    
 }());
