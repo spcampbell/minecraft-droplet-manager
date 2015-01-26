@@ -11,9 +11,9 @@ Let the people play without needing your help and costing you a fortune.
 
 [http://gnonai.github.io/minecraft-droplet-manager/](http://gnonai.github.io/minecraft-droplet-manager/)
 
-<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture1.PNG"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture1_th.PNG" alt="Server down" height="150px"></a>
-<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture2.PNG"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture2_th.PNG" alt="Server up" height="150px"></a>
-<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture3.PNG"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture3_th.PNG" alt="Server archiving" height="150px"></a>
+<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture1.PNG"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture1_th.png" alt="Server down" height="150px"></a>
+<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture2.PNG"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture2_th.png" alt="Server up" height="150px"></a>
+<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture3.PNG"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture3_th.png" alt="Server archiving" height="150px"></a>
 
 
 ### Browser Compatibility
