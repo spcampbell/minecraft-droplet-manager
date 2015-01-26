@@ -132,8 +132,8 @@ if ($whatlevel != "A") header( 'Location: index.php?logout=yes' );
     <script src="js/ui-bootstrap-tpls-0.12.0.min.js"></script>
     <script src="js/spin.min.js"></script>
     <script src="js/angular-spinner.min.js"></script>
-    <script src="js/ZeroClipboard.js"></script>
-    <script src="js/ngClip.js"></script>
+    <script src="js/ZeroClipboard.min.js"></script>
+    <script src="js/ng-clip.min.js"></script>
     <script src="app/app.js"></script>
     <script src="app/controllers/domcmgrController.js"></script>
     <script src="app/services/doapiFactory.js"></script>
