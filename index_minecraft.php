@@ -50,7 +50,7 @@ if ($whatlevel != "A") header( 'Location: index.php?logout=yes' );
             <div class="cover-container">
                 <div class="inner cover">
                     <div class="row">
-                        <div class="col-md-12"><h1>Minecraft Server Manager</h1></div>
+                        <div class="col-md-12"><h1>Minecraft Droplet Manager</h1></div>
                     </div>
                     <div class="row">
                         <div class="col-md-12"><p><a class="btn btn-default btn-xs" type="button" href="index.php?logout=yes">Logout</a></p></div>
