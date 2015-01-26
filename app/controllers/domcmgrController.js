@@ -182,7 +182,7 @@ http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
         
         // fallback function for ng-clip if no flash available
         $scope.fallback = function(copy) {
-            window.prompt('Press cmd+c to copy the text below.', copy);
+            window.prompt('Press cmd+c/ctrl+c to copy text', copy);
         };
         
         // initial set up of page
