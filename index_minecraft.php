@@ -70,7 +70,7 @@ if ($whatlevel != "A") header( 'Location: index.php?logout=yes' );
 							<div class="col-md-12">
                                 <p class="lead">Play Minecraft at: {{ serverlocation }} 
                                 <span>&nbsp;</span>
-                                <a tooltip="Copy to address to clipboard">
+                                <a tooltip="Copy address to clipboard">
                                 <button class="btn btn-default btn-xs" clip-copy="serverlocation" clip-click-fallback="fallback(copy)"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span></button>
                                 </a>
                                 </p>
