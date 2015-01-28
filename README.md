@@ -11,10 +11,11 @@ Let the people play without needing your help and costing you a fortune.
 
 [http://gnonai.github.io/minecraft-droplet-manager/](http://gnonai.github.io/minecraft-droplet-manager/)
 
-<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture1.PNG"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture1_th.png" alt="Server down" height="150px"></a>
-<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture2.PNG"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture2_th.png" alt="Server up" height="150px"></a>
-<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture3.PNG"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/Capture3_th.png" alt="Server archiving" height="150px"></a>
-
+<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletdown.png"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletdown_th.png" alt="Server down" height="180px"></a>
+<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletstarting.png"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletstarting_th.png" alt="Server starting" height="180px"></a>
+<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletup.png"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletup_th.png" alt="Server up" height="180px"></a>
+<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletstopping.png"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletstopping_th.png" alt="Server stopping" height="180px"></a>
+<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/mobilestopping.png"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/mobilestopping_th.png" alt="Server down" height="180px"></a>
 
 ### Browser Compatibility
 
