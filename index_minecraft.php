@@ -40,7 +40,8 @@ if ($whatlevel != "A") header( 'Location: index.php?logout=yes' );
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Minecraft Droplet Manager</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/angular-busy.min.css" rel="stylesheet">
     <link href="css/cover.css" rel="stylesheet">
     <link href="css/domcmgr.css" rel="stylesheet">
 </head>
@@ -58,24 +59,26 @@ if ($whatlevel != "A") header( 'Location: index.php?logout=yes' );
                     <div class="row">
                         <div class="col-md-12">&nbsp;</div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12"><p class="lead">Server: {{ servername | uppercase }}</p></div>
+                    <div cg-busy="{promise:initPromise,message:'Loading',backdrop:false,delay:10,minDuration:700}">
+                        <div class="row">
+                            <div class="col-md-12"><p class="lead">Server: {{ servername | uppercase }}</p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12"><p class="lead">Status: {{ serverstatus | uppercase }}</p></div>
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12"><p class="lead">Status: {{ serverstatus | uppercase }}</p></div>
-                    </div>
-                    
-					<div ng-show="serverup">
+					<div ng-show="serverupshow">
 						<div class="row">
 							<div class="col-md-12">
                                 <p class="lead">Play Minecraft at: {{ serverlocation }} 
                                 <span>&nbsp;</span>
                                 <a tooltip="Copy address to clipboard">
-                                <button class="btn btn-default btn-xs" clip-copy="serverlocation" clip-click-fallback="fallback(copy)"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span></button>
+                                <button class="btn btn-default btn-xs" clip-copy="serverlocation" clip-click="clipdone()" clip-click-fallback="fallback(copy)"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span></button>
                                 </a>
                                 </p>
                             </div> 
 						</div>
+                        <div class="clipdonebox fadeanim" ng-show="clipdoneshow"><button type="button" class="btn btn-default btn-sm">Server address was copied to clipboard</button></div>
 						<div class="row">
 							<div class="col-md-12"><p class="lead">Admin Console:  <a data-ng-href="https://{{ serverip }}:8080" target="_blank">https://{{ serverip }}:8080</a></p></div>
 						</div>
@@ -90,25 +93,24 @@ if ($whatlevel != "A") header( 'Location: index.php?logout=yes' );
 						</div>
                     </div>		
                     
-                     <div ng-hide="serverup">
+                     <div ng-show="serverdownshow">
 					 	<div class="row">
 				            <div class="col-md-12">&nbsp;</div>
 						</div>	
-                        <div id="progressmodal" ng-show="serveroutput" >
+                        <div id="progressmodal" ng-show="serveroutput">
                             <div class="row" ng-repeat="line in output">
                                 <div class="col-md-12"><p class="lead">{{ line }}</p></div>
                             </div>	
-                            <div class="row">
-                                <div class="col-md-12">&nbsp;</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12"><p><span us-spinner spinner-key="spinner-1"></span></p></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">&nbsp;</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">&nbsp;</div>
+                            <div cg-busy="{promise:outputPromise,message:'Please wait',backdrop:false,delay:10,minDuration:700}">
+                                <div class="row">
+                                    <div class="col-md-12">&nbsp;</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">&nbsp;</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">&nbsp;</div>
+                                </div>
                             </div>
                         </div> 
 						<div class="row" ng-hide="serveroutput">
@@ -129,11 +131,11 @@ if ($whatlevel != "A") header( 'Location: index.php?logout=yes' );
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.js"></script>
+    <script src="js/angular-animate.min.js"></script>
     <script src="js/ui-bootstrap-tpls-0.12.0.min.js"></script>
-    <script src="js/spin.min.js"></script>
-    <script src="js/angular-spinner.min.js"></script>
     <script src="js/ZeroClipboard.min.js"></script>
     <script src="js/ng-clip.min.js"></script>
+    <script src="js/angular-busy.min.js"></script>
     <script src="app/app.js"></script>
     <script src="app/controllers/domcmgrController.js"></script>
     <script src="app/services/doapiFactory.js"></script>

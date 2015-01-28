@@ -22,7 +22,7 @@ http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
 
 (function() {
     
-    var app = angular.module('domcmgrApp', ['ui.bootstrap','angularSpinner','ngClipboard']);
+    var app = angular.module('domcmgrApp', ['ui.bootstrap','ngClipboard','ngAnimate','cgBusy']);
     
     app.config(['ngClipProvider', function(ngClipProvider) {
       ngClipProvider.setPath("ZeroClipboard.swf");

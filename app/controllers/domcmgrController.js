@@ -22,29 +22,35 @@ http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
 
 (function() {
     
-    var DomcmgrController = function ($scope,$http,doapiFactory,usSpinnerService) {
+    var DomcmgrController = function ($scope,$http,doapiFactory) {
         
         $scope.output = [];
         
         
         // init() gets current server info and sets up the page appropriately
         function init() {
-            doapiFactory.doGet('getserverinfo')
+            $scope.serveroutput = false;
+            $scope.output = [];
+            $scope.serverupshow = false;
+            $scope.serverdownshow = false;
+            $scope.initPromise = doapiFactory.doGet('getserverinfo')
                 .success(function(response) {
                     $scope.servername = response.name;
                     $scope.serverstatus = response.status;
                     $scope.serverip = response.ip;
                     $scope.serverlocation = response.ip + ":" + response.port;
-                    $scope.serveroutput = false;
                     if (response.exists == "true" && response.status == "active") {
                         //server is up 
-                        $scope.serverup = true;
+                        $scope.serverupshow = true;
+                        $scope.serverdownshow = false;
                     } else {
                         // server is down
-                        $scope.serverup = false;
+                        $scope.serverupshow = false;
+                        $scope.serverdownshow = true;
                         if (response.status == 'new'){
                             $scope.serveroutput = true;
-                            $scope.output = "Server is starting..."
+                            $scope.output = "Server is starting...";
+                            // need to check status here
                         }
                     }      
                 })
@@ -59,14 +65,13 @@ http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
             $scope.output = [];
             $scope.serveroutput = true;
             $scope.serverstatus = "Starting...";
-            usSpinnerService.spin('spinner-1');
             
-            doapiFactory.doGet("getserverinfo")
+            $scope.outputPromise = doapiFactory.doGet("getserverinfo")
                 .then(function(response) {
                     if (response.data.exists == 'false') {
                         console.log("Creating server");
                         $scope.output.push("Creating server...");
-                        $scope.output.push("(Please wait. This takes approx 1 minute.)");
+                        $scope.output.push("(Please wait. This takes approx 1 minute)");
                         return doapiFactory.doGet("createserver");
                     } else if (response.data.status == 'off') {
                         console.log("Server exists, power on");
@@ -83,22 +88,26 @@ http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
                 .then(function(response) {
                     console.log("Start up is " + response.message);
                     $scope.output.push("DONE!");
-                    usSpinnerService.stop('spinner-1');
+                    //usSpinnerService.stop('spinner-1');
+                    console.log('Wait for 2 more seconds');
+                    return doapiFactory.doDelay(2);                    
+                })
+                .then(function(response) {
                     init();
-                });        
+                });
         };
         
         
         // archive() brings the server down, snapshots, and destroys droplet
         $scope.archive = function() {            
             $scope.output = [];
-            $scope.serverup = false;
+            $scope.serverupshow = false;
+            $scope.serverdownshow = true;
             $scope.serveroutput = true;
             $scope.serverstatus = "Archiving..."
             $scope.output.push("!DO NOT CLOSE THIS WINDOW UNTIL DONE!");
-            usSpinnerService.spin('spinner-1');
             
-            doapiFactory.doGet("getserverinfo")
+            $scope.outputPromise = doapiFactory.doGet("getserverinfo")
                 .then(function(response) {
                      console.log('1 - Shut down server if up');
                     if (response.data.status == 'active') {
@@ -173,8 +182,11 @@ http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
                 })
                 .then(function(response) {
                     console.log("Archive is " + response.message);
-                    $scope.output.push("Archive is " + response.message);
-                    usSpinnerService.stop('spinner-1');
+                    $scope.output.push("Archive is " + response.message + "!");
+                    console.log('Wait for 2 more seconds');
+                    return doapiFactory.doDelay(2);                    
+                })
+                .then(function(response) {
                     init();
                 });
         };
@@ -185,11 +197,17 @@ http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
             window.prompt('Press cmd+c/ctrl+c to copy text', copy);
         };
         
+        $scope.clipdone = function() {
+            console.log("clip done");   
+            $scope.clipdoneshow = true;
+            doapiFactory.doDelay(2).then(function(response) { $scope.clipdoneshow = false; });
+        };
+        
         // initial set up of page
         init();
     };
     
-    DomcmgrController.$inject = ['$scope','$http','doapiFactory','usSpinnerService'];
+    DomcmgrController.$inject = ['$scope','$http','doapiFactory'];
 
     angular.module('domcmgrApp')
       .controller('DomcmgrController', DomcmgrController);
