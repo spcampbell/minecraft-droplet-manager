@@ -9,7 +9,7 @@ Starts it up when ready to play and tears it down when done. Automatically creat
 
 Let the people play without needing your help and costing you a fortune.
 
-[http://gnonai.github.io/minecraft-droplet-manager/](http://gnonai.github.io/minecraft-droplet-manager/)
+[http://http://spcampbell.github.io/minecraft-droplet-manager/](http://spcampbell.github.io/minecraft-droplet-manager/)
 
 <a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletdown.png"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletdown_th.png" alt="Server down" height="180px"></a>
 <a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletstarting.png"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletstarting_th.png" alt="Server starting" height="180px"></a>
