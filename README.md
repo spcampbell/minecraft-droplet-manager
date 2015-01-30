@@ -11,12 +11,12 @@ Let the people play without needing your help and costing you a fortune.
 
 [http://http://spcampbell.github.io/minecraft-droplet-manager/](http://spcampbell.github.io/minecraft-droplet-manager/)
 
-<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletdown.png"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletdown_th.png" alt="Server down" height="180px"></a>
-<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletstarting.png"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletstarting_th.png" alt="Server starting" height="180px"></a>
+<a href="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletdown.png"><img src="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletdown_th.png" alt="Server down" height="180px"></a>
+<a href="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletstarting.png"><img src="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletstarting_th.png" alt="Server starting" height="180px"></a>
 
-<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletup.png"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletup_th.png" alt="Server up" height="180px"></a>
-<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletstopping.png"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/dropletstopping_th.png" alt="Server stopping" height="180px"></a>
-<a href="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/mobilestopping.png"><img src="https://raw.githubusercontent.com/gnonai/minecraft-droplet-manager/master/screenshots/mobilestopping_th.png" alt="Server down" height="180px"></a>
+<a href="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletup.png"><img src="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletup_th.png" alt="Server up" height="180px"></a>
+<a href="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletstopping.png"><img src="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletstopping_th.png" alt="Server stopping" height="180px"></a>
+<a href="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/mobilestopping.png"><img src="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/mobilestopping_th.png" alt="Server down" height="180px"></a>
 
 ### Browser Compatibility
 
