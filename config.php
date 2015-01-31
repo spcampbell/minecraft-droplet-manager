@@ -3,7 +3,7 @@
 
 Minecraft Droplet Manager
 
-http://gnonai.github.io/minecraft-droplet-manager/
+http://spcampbell.github.io/minecraft-droplet-manager/
 
 Single click control of a minecraft server droplet
 hosted on Digital Ocean. Starts it up when ready to play
@@ -12,9 +12,7 @@ snapshot before destroying droplet.
 
 Let the kids play without needing your help and costing you a fortune.
 
-Go here for more information: http://github.com/gnonai/minecraft-droplet-manager
-
-Released under MIT License - 2015 - gnonai
+Released under MIT License - 2015 - spcampbell
 
 Inspired by the work of S-rc-C-d-
 http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
