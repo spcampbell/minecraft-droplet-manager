@@ -197,7 +197,11 @@ http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
         function calcCost(costperhour,hoursup) {
             wholehours = Math.floor(hoursup);
             parthours = Math.ceil(hoursup - wholehours);
-            return totalcost = ((wholehours + parthours) * costperhour).toFixed(2);
+            totalcost = ((wholehours + parthours) * costperhour).toFixed(3);
+            if (totalcost == 0) {
+                totalcost = costperhour.toFixed(3);   
+            }
+            return totalcost;
         }
 
         
