@@ -108,6 +108,31 @@ class DOAPI {
         return 0;    
     }
     
+    function getDropletDetails($sizeid) {
+        // {"id":63,"name":"1GB","slug":"1gb","memory":1024,"cpu":1,"disk":30,"cost_per_hour":0.01488,"cost_per_month":"10.0"},
+        $target = "sizes";
+        $ID = "";
+        $action = "";
+        $details = "";
+        $json = $this->digiOceanCall($target,$ID,$action,$details);
+        $sizelist = json_decode($json);
+        foreach ($sizelist->sizes as $size) {
+            if ($size->id == $sizeid) {
+                return $size;
+            }
+        }
+        return 0;    
+    }           
+    
+    function calcUptime($created_at) {
+        date_default_timezone_set('UTC');
+        $offset = 0;
+        $created = strtotime($created_at);
+        $now = time();
+        $hours = round((($now - $created)/3600) + $offset , 1);
+        return $hours;    
+    }  
+  
     function getServerInfo() {
         $target = "droplets";
         $ID = "";
@@ -117,11 +142,15 @@ class DOAPI {
         $dropletlist = json_decode($json);
         foreach ($dropletlist->droplets as $dropletdata) {
             if ($dropletdata->name == $this->dropletname) {
+                $dropletdetails = $this->getDropletDetails($dropletdata->size_id);
                 $response = array("exists" => "true",
                                   "name" => $this->dropletname,
                                   "status" => $dropletdata->status,
                                   "ip" => $dropletdata->ip_address,
-                                  "port" => $this->minecraftport);
+                                  "port" => $this->minecraftport,
+                                  "created_at" => $dropletdata->created_at,
+                                  "uptime" => $this->calcUptime($dropletdata->created_at),
+                                  "details" => $dropletdetails);
                 return json_encode($response);
             }
         }

@@ -12,6 +12,18 @@
     border-radius: 10px;
 }
 
+#serverstats {
+    text-shadow: none; /* Prevent inheritence from `body` */
+    border: 1px solid #fff;
+    text-align: center;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px; 
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
 
 .clipdonebox {
     position:absolute;
