@@ -129,7 +129,7 @@ class DOAPI {
         $offset = 0;
         $created = strtotime($created_at);
         $now = time();
-        $hours = round((($now - $created)/3600) + $offset , 1);
+        $hours = round((($now - $created)/3600) + $offset , 2);
         return $hours;    
     }  
   
