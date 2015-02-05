@@ -39,6 +39,11 @@ http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
                     $scope.serverlocation = response.ip + ":" + response.port;
                     if (response.exists == "true" && response.status == "active") {
                         //server is up 
+                        $scope.cpu = response.details.cpu;
+                        $scope.ram = response.details.name;
+                        $scope.storage = response.details.disk + "GB";
+                        $scope.up = response.uptime;
+                        $scope.cost = calcCost(response.details.cost_per_hour,response.uptime);
                         $scope.serverupshow = true;
                         $scope.serverdownshow = false;
                     } else {
@@ -188,6 +193,12 @@ http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
                     init();
                 });
         };
+
+        function calcCost(costperhour,hoursup) {
+            wholehours = Math.floor(hoursup);
+            parthours = Math.ceil(hoursup - wholehours);
+            return totalcost = ((wholehours + parthours) * costperhour).toFixed(2);
+        }
 
         
         // fallback function for ng-clip if no flash available

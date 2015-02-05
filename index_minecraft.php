@@ -65,7 +65,16 @@ if ($whatlevel != "A") header( 'Location: index.php?logout=yes' );
                             <div class="col-md-12"><p class="lead">Status: {{ serverstatus | uppercase }}</p></div>
                         </div>
                     </div>
+                    
 					<div ng-show="serverupshow">
+                        <div class="row">
+                            <div class="col-md-3">&nbsp;</div>
+                            <div class="col-md-6" id="serverstats">
+                                <p>CPU {{ cpu }} - RAM {{ ram }} - HDD {{ storage }}</p>
+                                <p>UP {{ up }} HRS - COST ${{ cost }}</p>
+                            </div>
+                            <div class="col-md-3">&nbsp;</div>
+                        </div>
 						<div class="row">
 							<div class="col-md-12">
                                 <p class="lead">Play Minecraft at: {{ serverlocation }} 
@@ -95,6 +104,7 @@ if ($whatlevel != "A") header( 'Location: index.php?logout=yes' );
 					 	<div class="row">
 				            <div class="col-md-12">&nbsp;</div>
 						</div>	
+                         
                         <div id="progressmodal" ng-show="serveroutput">
                             <div class="row" ng-repeat="line in output">
                                 <div class="col-md-12"><p class="lead">{{ line }}</p></div>
@@ -111,6 +121,7 @@ if ($whatlevel != "A") header( 'Location: index.php?logout=yes' );
                                 </div>
                             </div>
                         </div> 
+                         
 						<div class="row" ng-hide="serveroutput">
                             <div class="col-md-12">
                                 <button type="button" class="btn btn-danger" data-ng-click="startUp()">Click to Start Playing</button>
