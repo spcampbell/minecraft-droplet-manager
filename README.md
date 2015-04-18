@@ -74,6 +74,11 @@ A: You may be wondering what the "admin console" link is all about. This was spe
 
 This is a work in progress. I still need to add some robust error handling. That is coming soon.
 
+### To Install On OpenShift
+rhc app create minecraftdropletmanager php-5.4 --from-code https://github.com/andrewl/minecraft-droplet-manager
+
+
+
 ### Credit
 
 This was inspired by the work of S-rc-C-d-
