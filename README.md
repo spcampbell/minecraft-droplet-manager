@@ -81,17 +81,30 @@ Openshift is a platform-as-a-service from RedHat which enables you to very quick
 
 0. Setup an OpenShift account and download the rhc tools 
 1. Create a new app
-  rhc app create minecraftdropletmanager php-5.4 --from-code https://github.com/andrewl/minecraft-droplet-manager
-2. Set the following environment variables using the command
-  rhc env set VARIABLE=VALUE -a minecraftdropletmanager
-|DO_CLIENT_ID|Your Digital Ocean API v1 Client ID|
-|DO_API|Your Digital Ocean API v1 Key|
-|DROPLET_NAME|The name of your droplet (eg my-minecraft-droplet)|
-|DROPLET_SIZE|The size of your droplet (eg 2gb)|
-|DROPLET_LOCATION|The location of your droplet (eg london)|
-|MINECRAFT_PORT|The port minecraft is listening on (eg 25565)|
 
-NB Any settings that are present in the config.php file will overwrite the 
+    rhc app create minecraftdropletmanager php-5.4 --from-code https://github.com/andrewl/minecraft-droplet-manager
+
+2. Set the following environment variables using the command
+ 
+    rhc env set VARIABLE=VALUE -a minecraftdropletmanager
+
+DO_CLIENT_ID: Your Digital Ocean API v1 Client ID
+
+DO_API:Your Digital Ocean API v1 Key
+
+DROPLET_NAME: The name of your droplet (eg my-minecraft-droplet)
+
+DROPLET_SIZE: The size of your droplet (eg 2gb)
+
+DROPLET_LOCATION: The location of your droplet (eg london)
+
+MINECRAFT_PORT: The port minecraft is listening on (eg 25565)
+
+3. Visit http://minecraftdropletmanager-<YOUR-DOMAIN>.rhcloud.com and login using the password set in index.php
+
+@TODO: set password using environment variable 
+
+NB Any settings that are present in the config.php file will take precedent over the environment variables
 
 ### Credit
 
