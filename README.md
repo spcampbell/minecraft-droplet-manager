@@ -81,9 +81,9 @@ Openshift is a platform-as-a-service from RedHat which enables you to very quick
 
 0. Setup an OpenShift account and download the rhc tools 
 1. Create a new app
-rhc app create minecraftdropletmanager php-5.4 --from-code https://github.com/andrewl/minecraft-droplet-manager
+  rhc app create minecraftdropletmanager php-5.4 --from-code https://github.com/andrewl/minecraft-droplet-manager
 2. Set the following environment variables using the command
-rhc env set VARIABLE=VALUE -a minecraftdropletmanager
+  rhc env set VARIABLE=VALUE -a minecraftdropletmanager
 |DO_CLIENT_ID|Your Digital Ocean API v1 Client ID|
 |DO_API|Your Digital Ocean API v1 Key|
 |DROPLET_NAME|The name of your droplet (eg my-minecraft-droplet)|
