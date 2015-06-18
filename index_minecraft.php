@@ -70,7 +70,7 @@ if ($whatlevel != "A") header( 'Location: index.php?logout=yes' );
                         <div class="row">
                             <div class="col-md-3">&nbsp;</div>
                             <div class="col-md-6" id="serverstats">
-                                <p>CPU {{ cpu }} - RAM {{ ram }} - HDD {{ storage }}</p>
+                                <p>{{ cpu }} CPU - {{ ram }} RAM - {{ storage }} HDD</p>
                                 <p>UP {{ up }} HRS - COST ${{ cost }}</p>
                             </div>
                             <div class="col-md-3">&nbsp;</div>
