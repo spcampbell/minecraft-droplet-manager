@@ -1,4 +1,4 @@
-http://gnonai.github.io/minecraft-droplet-manager/
+http://spcampbell.github.io/minecraft-droplet-manager/
 
 The MIT License (MIT)
 

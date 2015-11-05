@@ -21,18 +21,15 @@ http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
 
 class DOAPI {
     
-    //var $IDandAPI;
     var $doAPIv2Token;
     var $dropletname;
     var $dropletsize;
     var $dropletlocation;
     var $minecraftport;
-    //var $baseURL = "https://api.digitalocean.com/v1/";
     var $baseURL = "https://api.digitalocean.com/v2/";
 
     function __construct($doAPIv2Token,$dropletname,$dropletsize,$dropletlocation,$minecraftport) {
         
-        //$this->IDandAPI = "client_id=".$doClientID."&api_key=".$doApi;
         $this ->doAPIv2Token = $doAPIv2Token;
         $this->dropletname = $dropletname;
         $this->dropletsize = $dropletsize;
@@ -95,7 +92,6 @@ class DOAPI {
     }
     
     function getDropletID() {
-        // get image id for $this->dropletname."-snap"
         $requesttype = "GET";
         $postparam = "";
         $target = "droplets";
@@ -112,7 +108,6 @@ class DOAPI {
     }
     
     function getDropletDetails($size_slug) {
-        // {"id":63,"name":"1GB","slug":"1gb","memory":1024,"cpu":1,"disk":30,"cost_per_hour":0.01488,"cost_per_month":"10.0"},
         $requesttype = "GET";
         $postparam = "";
         $target = "sizes";
@@ -192,74 +187,71 @@ class DOAPI {
         $response = array("status" =>  $dropletdata->droplet->status);
         return json_encode($response);
     }
-    
-// ---- converted to API v2 down to here ----
-    
+        
     function powerOnServer() {
+        $requesttype = "POST";
+        $postparam = array("type" =>  "power_on" );  
         $target = "droplets";
         $ID = $this->getDropletID();
-        $action = "power_on";
-        $details = "";  
-        $json = $this->digiOceanCall($target,$ID,$action,$details);
+        $json = $this->digiOceanCall($requesttype,$postparam,$target,$ID);
         return $json;        
     }
  
     function powerOffServer() {
+        $requesttype = "POST";
+        $postparam = array("type" =>  "power_off" );  
         $target = "droplets";
         $ID = $this->getDropletID();
-        $action = "power_off";
-        $details = "";  
-        $json = $this->digiOceanCall($target,$ID,$action,$details);       
+        $json = $this->digiOceanCall($requesttype,$postparam,$target,$ID);
         return $json;        
     }
     
     function shutdownServer() {
+        $requesttype = "POST";
+        $postparam = array("type" =>  "shutdown" );  
         $target = "droplets";
         $ID = $this->getDropletID();
-        $action = "shutdown";
-        $details = "";  
-        $json = $this->digiOceanCall($target,$ID,$action,$details);      
-        return $json;         
+        $json = $this->digiOceanCall($requesttype,$postparam,$target,$ID);
+        return $json;          
     }
-
+    
     function getEventStatus($eventid) {
-        $target = "events";
+        $requesttype = "GET";
+        $postparam = "";
+        $target = "actions";
         $ID = $eventid;
-        $action = "";
-        $details = "";  
-        $json = $this->digiOceanCall($target,$ID,$action,$details);
+        $json = $this->digiOceanCall($requesttype,$postparam,$target,$ID);
         return $json;     
     }
 
     function destroyServer() {
+        $requesttype = "DELETE";
+        $postparam = "";
         $target = "droplets";
         $ID = $this->getDropletID();
-        $action = "destroy";
-        $details = "";  
-        $json = $this->digiOceanCall($target,$ID,$action,$details);
+        $json = $this->digiOceanCall($requesttype,$postparam,$target,$ID);
         return $json;     
     }
 
     function snapshotServer() {
+        $requesttype = "POST";
+        $postparam = array("type" =>  "snapshot", "name" => $this->dropletname."-snap" );  
         $target = "droplets";
         $ID = $this->getDropletID();
-        $action = "snapshot";
-        $details = $this->dropletname."-snap";  
-        $json = $this->digiOceanCall($target,$ID,$action,$details);
+        $json = $this->digiOceanCall($requesttype,$postparam,$target,$ID);
         return $json;     
     }
     
     function deleteSnapshot() {
+        $requesttype = "DELETE";
+        $postparam = "";
         $target = "images";
         $ID = $this->getImageID();
-        $action = "destroy";
-        $details = "";  
-        $json = $this->digiOceanCall($target,$ID,$action,$details);
+        $json = $this->digiOceanCall($requesttype,$postparam,$target,$ID);
         return $json;     
     }
     
     function snapshotExists() {
-        $target = "images";
         $ID = $this->getImageID();
         if ($ID) {
             $response = array("exists" => "true");
