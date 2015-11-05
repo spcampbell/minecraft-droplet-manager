@@ -150,7 +150,7 @@ class DOAPI {
                 $response = array("exists" => "true",
                                   "name" => $this->dropletname,
                                   "status" => $dropletdata->status,
-                                  "ip" => $dropletdata->networks->v4->ip_address,
+                                  "ip" => $dropletdata->networks->v4[0]->ip_address,
                                   "port" => $this->minecraftport,
                                   "created_at" => $dropletdata->created_at,
                                   "uptime" => $this->calcUptime($dropletdata->created_at),
