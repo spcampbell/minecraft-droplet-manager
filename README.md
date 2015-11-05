@@ -20,7 +20,7 @@ Let the people play without needing your help and costing you a fortune.
 
 ### Browser Compatibility
 
-I am not able to test this in very many browsers. I can verify it works in Safari 8, Internet Explorer 11, and Chrome 39 (desktop and mobile). If you have success or errors in other browsers, please let me know by submitting issues.
+I am not able to test this in all the various browsers out there. It does use Javascript and so old browsers may have issues. I use the latest versions of Chrome and Safari primarily. I have tested it on IE11 and it works, but may also work on other versions. If you have problems, try the latest version of your browser and see if that helps.
 
 ### Setup
 
