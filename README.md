@@ -1,3 +1,5 @@
+**November 5, 2015 Update** -- Updated to work with Digital Ocean API V2. The V1 API will stop working November 9, 2015. Please update your Minecraft Droplet Manager if you want it to work after that date. Note that you will have to generate a new API token from your Digital Ocean account dashboard.
+
 Minecraft Droplet Manager
 -------------------------
 
