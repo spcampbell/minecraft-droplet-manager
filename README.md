@@ -13,7 +13,7 @@ Let the people play without needing your help and costing you a fortune.
 
 <a href="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletdown.png"><img src="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletdown_th.png" alt="Server down" height="180px"></a>
 <a href="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletstarting.png"><img src="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletstarting_th.png" alt="Server starting" height="180px"></a>
-
+ 
 <a href="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletup.png"><img src="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletup_th.png" alt="Server up" height="180px"></a>
 <a href="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletstopping.png"><img src="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/dropletstopping_th.png" alt="Server stopping" height="180px"></a>
 <a href="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/mobilestopping.png"><img src="https://raw.githubusercontent.com/spcampbell/minecraft-droplet-manager/master/screenshots/mobilestopping_th.png" alt="Server down" height="180px"></a>
@@ -25,6 +25,8 @@ I am not able to test this in very many browsers. I can verify it works in Safar
 ### Setup
 
 #### 1. Host this script somewhere and set up your Minecraft droplet.
+
+(See also, 'Running on Openshift below')
 
 You'll need a place to host the files that is not on the minecraft server you are controlling. The web host will need to have PHP available.
 
@@ -73,6 +75,36 @@ A: You may be wondering what the "admin console" link is all about. This was spe
 ### TODO
 
 This is a work in progress. I still need to add some robust error handling. That is coming soon.
+
+### Running On OpenShift
+Openshift is a platform-as-a-service from RedHat which enables you to very quickly websites and online services up-and-running with a minimal amount of fuss. See openshift.com for more information.
+
+0. Setup an OpenShift account and download the rhc tools 
+1. Create a new app
+
+    rhc app create minecraftdropletmanager php-5.4 --from-code https://github.com/andrewl/minecraft-droplet-manager
+
+2. Set the following environment variables using the command
+ 
+    rhc env set VARIABLE=VALUE -a minecraftdropletmanager
+
+DO_CLIENT_ID: Your Digital Ocean API v1 Client ID
+
+DO_API:Your Digital Ocean API v1 Key
+
+DROPLET_NAME: The name of your droplet (eg my-minecraft-droplet)
+
+DROPLET_SIZE: The size of your droplet (eg 2gb)
+
+DROPLET_LOCATION: The location of your droplet (eg london)
+
+MINECRAFT_PORT: The port minecraft is listening on (eg 25565)
+
+3. Visit http://minecraftdropletmanager-<YOUR-DOMAIN>.rhcloud.com and login using the password set in index.php
+
+@TODO: set password using environment variable 
+
+NB Any settings that are present in the config.php file will take precedent over the environment variables
 
 ### Credit
 
