@@ -29,13 +29,15 @@ if ($whatlevel != "A") header( 'Location: index.php?logout=yes' );
 
 require 'do_api.php';
 require 'config_dev.php';
+//require 'config.php';
 
 $todo = "";
 $eventid = "";
 if (isset($_GET['dothis'])) $todo = $_GET['dothis'];
 if (isset($_GET['eventid'])) $eventid = $_GET['eventid'];
 
-$doapi = new DOAPI($doClientID,$doApi,$dropletname,$dropletsize,$dropletlocation,$minecraftport);
+//$doapi = new DOAPI($doClientID,$doApi,$dropletname,$dropletsize,$dropletlocation,$minecraftport);
+$doapi = new DOAPI($doAPIv2Token,$dropletname,$dropletsize,$dropletlocation,$minecraftport);
 
 switch($todo) {
     case "getserverinfo":    

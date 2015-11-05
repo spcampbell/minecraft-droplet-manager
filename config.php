@@ -23,6 +23,7 @@ http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
 /* Configure these variables or set the relevant
    environment variables
 */
+/*
 $environmentVariableSettings = array(
   'doClientID' => 'DO_CLIENT_ID',
   'doApi' => 'DO_API',
@@ -31,13 +32,28 @@ $environmentVariableSettings = array(
   'dropletlocation' => 'DROPLET_LOCATION',
   'minecraftport' => 'MINECRAFT_PORT',
 );
+*/
 
+$environmentVariableSettings = array(
+  'doAPIv2Token' => 'DO_APIV2_TOKEN',
+  'dropletname' => 'DROPLET_NAME',
+  'dropletsize' => 'DROPLET_SIZE',
+  'dropletlocation' => 'DROPLET_LOCATION',
+  'minecraftport' => 'MINECRAFT_PORT',
+);
+
+///---------- V1 API deprecated -------------
 // Digital Ocean v1 API client ID and API key
 // Environment variable DO_CLIENT_ID
-$doClientID="";
+//$doClientID="";
 
 // Environment variable DO_API
-$doApi="";
+//$doApi="";
+///------------------------------------------
+
+// Digital Ocean v2 API Token
+$doAPIv2Token="";
+
 
 // Droplet details
 // Environment variable DROPLET_NAME

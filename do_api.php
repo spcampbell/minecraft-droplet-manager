@@ -21,68 +21,70 @@ http://hi.srccd.com/post/hosting-minecraft-on-digitalocean
 
 class DOAPI {
     
-    var $IDandAPI;
+    //var $IDandAPI;
+    var $doAPIv2Token;
     var $dropletname;
     var $dropletsize;
     var $dropletlocation;
     var $minecraftport;
-    var $baseURL = "https://api.digitalocean.com/v1/";
-    
-    function __construct($doClientID,$doApi,$dropletname,$dropletsize,$dropletlocation,$minecraftport) {
+    //var $baseURL = "https://api.digitalocean.com/v1/";
+    var $baseURL = "https://api.digitalocean.com/v2/";
+
+    function __construct($doAPIv2Token,$dropletname,$dropletsize,$dropletlocation,$minecraftport) {
         
-        $this->IDandAPI = "client_id=".$doClientID."&api_key=".$doApi;
+        //$this->IDandAPI = "client_id=".$doClientID."&api_key=".$doApi;
+        $this ->doAPIv2Token = $doAPIv2Token;
         $this->dropletname = $dropletname;
         $this->dropletsize = $dropletsize;
         $this->dropletlocation = $dropletlocation;
         $this->minecraftport = $minecraftport;        
     }
     
-    function digiOceanCall($target,$ID,$action,$details) {
-        /*
-        possible $targets: ["droplets","images","events"]
-        possible $actions (for droplets): ["","new","reboot","shutdown","power_on","snapshot","destroy"]
-        $ID is droplet id, image id, or event id depending on intended target
-        $details are used for droplet snapshot/restore.
-            droplet snapshot: $details = snapshot_name
-            droplet restore: $details = image_id
-            droplet new: $details = name,size_slug,image_id,region_slug
-        */
-        if ($target == "droplets" and $action == "new") {
-            $imageID = $this->getImageID();
-            $details = "name=" . $this->dropletname . "&image_id=" . $imageID;
-            $details .=  "&size_slug=" . $this->dropletsize . "&region_slug=" . $this->dropletlocation . "&";
-        }
+    function digiOceanCall($requesttype,$postparam,$target,$ID) {
         
-        if ($details != "") {
-            if ($action == "snapshot") {
-                $details = "name=" . $details . "&";
-            } elseif ($action == "restore") {
-                $details = "image_id=" . $details . "&";
-            }
-        }
-        
-        if ($ID != "")
-            $ID .= "/";
-        
-        if ($action != "")
-            $action .= "/";
+        $url = $this->baseURL . $target;
 
+        $curl = curl_init();
+
+        if ($ID != "") {
+            $url = $url . "/" . $ID;
+        }
+        
+        if ($requesttype == "POST") {
+            if ($ID){
+                $url = $url . "/actions";   
+            }
             
-        if ($target == "images" and $ID == "")
-                $details = "filter=my_images&";
-            
-        //build URL
-        $url = $this->baseURL . $target . "/" . $ID . $action . "?" . $details . $this->IDandAPI; 
-        return file_get_contents($url);        
+            $postData = '';
+            $postData = json_encode($postparam);
+                        
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
+        }
+        
+        if ($requesttype == "DELETE") {
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
+        }
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json', 'Authorization: Bearer ' . $this->doAPIv2Token ) );
+        
+        $output = curl_exec($curl); 
+        
+        curl_close($curl);
+       
+        return $output;
     }
     
     function getImageID() {
         // get image id for $this->dropletname."-snap"
-        $target = "images";
+        $requesttype = "GET";
+        $postparam = "";
+        $target = "images?private=true";
         $ID = "";
-        $action = "";
-        $details = "";
-        $json = $this->digiOceanCall($target,$ID,$action,$details);
+
+        $json = $this->digiOceanCall($requesttype,$postparam,$target,$ID);
         $imagelist = json_decode($json);
         foreach ($imagelist->images as $imagedata) {
             if ($imagedata->name == $this->dropletname."-snap") {
@@ -94,11 +96,12 @@ class DOAPI {
     
     function getDropletID() {
         // get image id for $this->dropletname."-snap"
+        $requesttype = "GET";
+        $postparam = "";
         $target = "droplets";
         $ID = "";
-        $action = "";
-        $details = "";
-        $json = $this->digiOceanCall($target,$ID,$action,$details);
+
+        $json = $this->digiOceanCall($requesttype,$postparam,$target,$ID);
         $dropletlist = json_decode($json);
         foreach ($dropletlist->droplets as $dropletdata) {
             if ($dropletdata->name == $this->dropletname) {
@@ -108,16 +111,17 @@ class DOAPI {
         return 0;    
     }
     
-    function getDropletDetails($sizeid) {
+    function getDropletDetails($size_slug) {
         // {"id":63,"name":"1GB","slug":"1gb","memory":1024,"cpu":1,"disk":30,"cost_per_hour":0.01488,"cost_per_month":"10.0"},
+        $requesttype = "GET";
+        $postparam = "";
         $target = "sizes";
         $ID = "";
-        $action = "";
-        $details = "";
-        $json = $this->digiOceanCall($target,$ID,$action,$details);
+
+        $json = $this->digiOceanCall($requesttype,$postparam,$target,$ID);
         $sizelist = json_decode($json);
         foreach ($sizelist->sizes as $size) {
-            if ($size->id == $sizeid) {
+            if ($size->slug == $size_slug) {
                 return $size;
             }
         }
@@ -134,19 +138,24 @@ class DOAPI {
     }  
   
     function getServerInfo() {
+        $requesttype = "GET";
+        $postparam = "";
         $target = "droplets";
         $ID = "";
-        $action = "";
-        $details = "";  
-        $json = $this->digiOceanCall($target,$ID,$action,$details);
+
+        $json = $this->digiOceanCall($requesttype,$postparam,$target,$ID);
         $dropletlist = json_decode($json);
         foreach ($dropletlist->droplets as $dropletdata) {
             if ($dropletdata->name == $this->dropletname) {
-                $dropletdetails = $this->getDropletDetails($dropletdata->size_id);
+                $alldetails = $this->getDropletDetails($dropletdata->size_slug);
+                $dropletdetails = array("name" => $alldetails->slug,
+                                        "cpu" => $alldetails->vcpus,
+                                        "disk" => $alldetails->disk,
+                                        "cost_per_hour" => $alldetails->price_hourly);
                 $response = array("exists" => "true",
                                   "name" => $this->dropletname,
                                   "status" => $dropletdata->status,
-                                  "ip" => $dropletdata->ip_address,
+                                  "ip" => $dropletdata->networks->v4->ip_address,
                                   "port" => $this->minecraftport,
                                   "created_at" => $dropletdata->created_at,
                                   "uptime" => $this->calcUptime($dropletdata->created_at),
@@ -163,16 +172,28 @@ class DOAPI {
     }
     
     function createServer() {
+        $requesttype = "POST";
+        
+         $postparam = array(
+            "name" =>  $this->dropletname,          
+            "region" => $this->dropletlocation,                
+            "size" => $this->dropletsize,                 
+            "image" => $this->getImageID()
+        );       
+                
         $target = "droplets";
         $ID = "";
-        $action = "new";
-        $details = "";  
-        $json = $this->digiOceanCall($target,$ID,$action,$details);
+
+        $json = $this->digiOceanCall($requesttype,$postparam,$target,$ID);
+
         $dropletdata = json_decode($json);
-        $response = array("status" => $dropletdata->status,
-                          "event_id" => $dropletdata->droplet->event_id);
+        //$response = array("status" =>  $dropletdata->droplet->status,
+        //                  "actions" => $dropletdata->droplet->links->actions);
+        $response = array("status" =>  $dropletdata->droplet->status);
         return json_encode($response);
     }
+    
+// ---- converted to API v2 down to here ----
     
     function powerOnServer() {
         $target = "droplets";
