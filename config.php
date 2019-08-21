@@ -34,6 +34,9 @@ $environmentVariableSettings = array(
 );
 */
 
+// DROPLET_SIZE should be from the SLUG
+// value from here: https://developers.digitalocean.com/documentation/v2/#sizes
+
 $environmentVariableSettings = array(
   'doAPIv2Token' => 'DO_APIV2_TOKEN',
   'dropletname' => 'DROPLET_NAME',
